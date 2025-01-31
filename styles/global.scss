@@ -2,7 +2,7 @@
 .hero {
   text-align: center;
   padding: $xl-6 0;
-  padding-top: $xll-3;
+  // padding-top: $xll-3;
   height: 90vh !important;
   overflow: hidden !important;
   position: relative;
@@ -20,10 +20,17 @@
     overflow-x: hidden !important;
   }
   .hero-title {
-    font-size: $xll-3;
+    font-size: $xll;
     line-height: 115px;
     font-weight: 600;
     margin: $xl-6 0;
+  }
+  @media screen and (max-width: 800px) {
+    .hero-title {
+      font-size: $xl-4;
+      line-height: normal;
+      margin: $xl-3 0;
+    }
   }
   .sub-heading {
     display: flex;
@@ -35,9 +42,19 @@
       font-size: $xll;
       line-height: 0;
       color: $green;
+    } 
+    @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    .titleSm {
+    margin: $xl-1 0;
     }
-  }
+    }
 }
+  }
+ 
+
+
 .hero-sec {
   position: relative;
   &::before {
@@ -152,42 +169,100 @@
 }
 
 // footer
+// footer {
+//   position: relative;
+//   padding: $xll-3 0 0 0;
+//   border-top: 1px solid rgba($white, 0.2);
+//   overflow: hidden;
+//   .logobg {
+//     line-height: 0;
+//     padding-top: $xl-1;
+//     margin-bottom: $xll;
+//   }
+//   h3 {
+//     font-weight: 400;
+//     letter-spacing: 2px;
+//     font-size: $lg;
+//     margin-bottom: $xl-6;
+//   }
+//   span,
+//   p {
+//     color: rgba($white, 0.5);
+//   }
+//   ul li a {
+//     color: rgba($white, 0.5);
+//     transition: 0.5s ease-in-out;
+//     margin-bottom: $xl-2;
+//     display: block;
+//     &:hover {
+//       color: $green;
+//     }
+//   }
+//   .connect {
+//     @include flex(center, space-between, none);
+//     span {
+//       font-size: $sm;
+//       letter-spacing: 2px;
+//     }
+//   }
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 100% !important;
+//     height: 60vh;
+//     background-image: url("../assets/images/blurfooter-min.png");
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     z-index: -1;
+//   }
+// }
 footer {
   position: relative;
   padding: $xll-3 0 0 0;
   border-top: 1px solid rgba($white, 0.2);
   overflow: hidden;
+
   .logobg {
     line-height: 0;
     padding-top: $xl-1;
     margin-bottom: $xll;
   }
+
   h3 {
     font-weight: 400;
     letter-spacing: 2px;
     font-size: $lg;
     margin-bottom: $xl-6;
   }
+
   span,
   p {
     color: rgba($white, 0.5);
   }
+
   ul li a {
     color: rgba($white, 0.5);
     transition: 0.5s ease-in-out;
     margin-bottom: $xl-2;
     display: block;
+
     &:hover {
       color: $green;
     }
   }
+
   .connect {
     @include flex(center, space-between, none);
+
     span {
       font-size: $sm;
       letter-spacing: 2px;
     }
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -201,37 +276,102 @@ footer {
     background-position: center;
     z-index: -1;
   }
+
+  @media screen and (max-width: 800px) {
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: $xl-3;
+      text-align: center;
+    }
+
+    .logo,
+    ul,
+    .connect {
+      @include flex(center, center, column);
+    }
+
+    .connect {
+      span {
+        margin: $xl-1 0;
+      }
+    }
+
+    .legal {
+      text-align: center;
+
+      &.connect {
+        flex-direction: column;
+
+        span {
+          margin: $xl-1 0;
+        }
+      }
+    }
+  }
+}
+footer {
+
+
+  .connect {
+    @include flex(center, space-between, none);
+
+    span {
+      font-size: $sm;
+      letter-spacing: 2px;
+    }
+
+    @media screen and (max-width: 800px) {
+      @include flex(center, center, row);
+
+      li {
+        margin: 0 $xl;
+      }
+
+      span {
+        margin: 0 $xl-1;
+      }
+    }
+  }
+
 }
 
-//Agency Page
 .bg-top {
+  position: relative;
+  overflow-x: hidden;
+
   &::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
+    width: 200%;
     height: 60vh;
     background-image: url("../assets/images/blurfooter-min.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateX(-50%);
   }
 }
+
 .agency {
   .content {
     margin-top: $xll;
+    padding: 0 $xl;
+
     h1 {
       font-size: $xl-6;
     }
+
     .box {
       h1 {
         font-size: 60px;
         font-weight: 400;
       }
     }
+
     .misson-p {
       border-left: 5px solid $indigo;
       padding-left: $xl-5;
@@ -243,6 +383,7 @@ footer {
   img {
     width: 300px;
   }
+
   .btn {
     @include flex(center, center, none);
   }

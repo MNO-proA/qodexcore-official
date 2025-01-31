@@ -29,7 +29,7 @@ const Company = () => {
                 by a commitment to delivering exceptional results.
               </p>
               <div className="grid-3">
-                <div className="box">
+                {/* <div className="box">
                   <h1 className="indigo">1</h1>
                   <h3>Year of experience</h3>
                 </div>
@@ -40,7 +40,7 @@ const Company = () => {
                 <div className="box">
                   <h1 className="indigo">0</h1>
                   <h3>Industry awards</h3>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="right w-40 ml">

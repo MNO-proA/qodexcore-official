@@ -3,22 +3,25 @@ import Banner from "@/components/Banner"
 import Expertise from "@/components/Expertise"
 import ShowCase from "@/components/ShowCase"
 import Testimonial from "@/components/Testimonial"
-import { Title, TitleLogo, TitleSm } from "@/components/common/Title"
+import { Title, TitleLogoWithoutCaption, TitleSm } from "@/components/common/Title"
 import { BlogCard, Brand } from "@/components/router"
 import React from "react"
+
 
 const Hero = () => {
   return (
     <>
       <section className='hero'>
         <div className='container'>
-          <TitleLogo title='odexcore' caption='Q' className='logobg' />
-          <h1 className='hero-title'>INNOVATION IN BUSINESS</h1>
+          <TitleLogoWithoutCaption title='odexcore' caption='Q' />
+          <h1 className='hero-title'>Innovation In Business</h1>
+          
 
           <div className='sub-heading'>
-            <TitleSm title='SOFTWARE' /> <span>.</span>
+          <span>.</span>
+            <TitleSm title='Software' /> <span>.</span>
             <TitleSm title='AI' /> <span>.</span>
-            <TitleSm title='DIGITAL MARKETING' />
+            <TitleSm title='Digital Marketing' />
           </div>
         </div>
       </section>

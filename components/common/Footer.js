@@ -10,10 +10,10 @@ const Footer = () => {
         <div className='container'>
           <div className='grid-4'>
             <div className='logo'>
-              <TitleLogo title='odexcore' caption='Q' className='logobg' />
+              <TitleLogo title='odexcore' caption='Q' />
               <br />
               <span>
-                Questions? Reach us <br /> Monday – Friday from 9 am to 6 pm
+                Questions? Reach us <br /> 
               </span>
               <br />
               <br />
@@ -88,8 +88,8 @@ const Footer = () => {
               <span>© 2025 QODEXCORE. ALL RIGHTS RESERVED.</span>
             </div>
             <div className='connect'>
-              <span>QODEXCORE COMPANY</span>
-              <span> &nbsp; | &nbsp; </span>
+              <span>QODEXCORE</span>
+              <span> &nbsp;  &nbsp; </span>
               <span>TERMS & CONDITIONS</span>
             </div>
           </div>

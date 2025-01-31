@@ -9,7 +9,38 @@
     -webkit-text-stroke: $green;
     color: $green;
   }
+
 }
+
+.title-logo-icon {
+  font-size: $xl-6;
+  -webkit-text-stroke: 1px $white;
+  color: transparent;
+  span {
+    font-size: 180px;
+    -webkit-text-stroke: $green;
+    color: $green;
+  }
+  @media screen and (max-width: 800px) {
+    span {
+    font-size: 80px;
+    }
+    }
+}
+
+.title-logo-footer {
+  margin-left: -100px;
+  font-size: $xl-6;
+  -webkit-text-stroke: 1px $white;
+  color: transparent;
+  span {
+    font-size: $xl-5;
+    -webkit-text-stroke: $green;
+    color: $green;
+  }
+
+}
+
 .logobg {
   font-size: $xll;
   span {
@@ -17,7 +48,7 @@
   }
 }
 .titleSm {
-  font-size: $xl-3;
+  font-size: $xl-1;
   font-weight: 500;
   letter-spacing: 2px;
 }
