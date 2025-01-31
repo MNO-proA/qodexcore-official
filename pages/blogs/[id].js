@@ -8,7 +8,14 @@ import React from "react"
 const SinglePost = () => {
   const router = useRouter()
   const { id } = router.query
-  const post = blogdata.find((post) => post.id === parseInt(id))
+  // const post = blogdata.find((post) => post.id === parseInt(id))
+
+   
+  if (!id) return <p>Loading...</p>; // Prevents errors before `id` is available
+  
+  const post = blogdata.find((post) => post.id === parseInt(id));
+
+  if (!post) return <p>Post not found.</p>; // Prevents errors if no post is found
 
   return (
     <>
