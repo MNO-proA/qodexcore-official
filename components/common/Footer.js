@@ -19,42 +19,48 @@ const Footer = () => {
               <br />
               <h3>+1 001 234 5678</h3>
               <br />
-              <button className='button-primary'>Request for quote</button>
+              {/* <button className='button-primary'>Request for quote</button> */}
             </div>
             <ul>
               <h3>COMPANY</h3>
               <li>
-                <Link href='/'>About Qodexcore</Link>
+                <Link href='/company'>About Qodexcore</Link>
               </li>
               <li>
-                <Link href='/'>Our team</Link>
+                <Link href='/products'>Products</Link>
               </li>
               <li>
-                <Link href='/'>Showcase</Link>
+                <Link href='/team'>Our team</Link>
               </li>
               <li>
-                <Link href='/'>Blog</Link>
+                <Link href='/showcase'>Showcase</Link>
               </li>
               <li>
+                <Link href='/blogs'>Blog</Link>
+              </li>
+              {/* <li>
                 <Link href='/'>Demo design system</Link>
-              </li>
+              </li> */}
               <li>
-                <Link href='/'>Contact</Link>
+                <Link href='/contact'>Contact</Link>
               </li>
             </ul>
             <ul>
               <h3>SERVICES</h3>
               <li>
-                <Link href='/'>Software Development</Link>
+                <Link href='/services'>Software Development</Link>
               </li>
               <li>
-                <Link href='/'>Branding & Creative Services</Link>
+                <Link href='/services'>AI & Data Solutions</Link>
               </li>
               <li>
-                <Link href='/'>Digital Marketing</Link>
+                <Link href='/services'>Digital Marketing</Link>
               </li>
               <li>
-                <Link href='/'>E-Commerce</Link>
+                <Link href='/services'>E-Commerce</Link>
+              </li>
+              <li>
+                <Link href='/services'>Payment Gateway and Integration</Link>
               </li>
             </ul>
             <ul>
@@ -65,11 +71,11 @@ const Footer = () => {
                     <BsFacebook size={25} />
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href='/'>
                     <AiFillBehanceCircle size={25} />
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href='/'>
                     <AiFillInstagram size={25} />

@@ -26,120 +26,82 @@ export const expertise = [
     id: 1,
     title: "Software Development",
     cover: "../images/e1.jpg",
-    desc: [{ text: "Web design" }, { text: "Web App development" }, { text: "PWA and Mobile Development" }, { text: "Hosting" }, { text: "Website Security" }],
+    link: "/services",
+    desc: [{ text: "Front End Development (UI/UX, Web Interface, Mobile Interface, Desktop Interface)" }, { text: "API development" }, { text: "Databases" }, { text: "Cloud Computing and Services (AWS, AZURE, GCP)" }, { text: "Web Security" }, ],
   },
   {
     id: 2,
-    title: "Digital Marketing",
-    cover: "../images/e2.jpg",
-    desc: [{ text: "Social media marketing" }, { text: "Marketing campaigns" }, { text: "Marketing management" }, { text: "SEO" }],
+    title: "AI & Data Solutions",
+    cover: "../images/e12.webp",
+    link: "/services",
+    desc: [{ text: "Data Science (Data Analytics and Visualization)" }, { text: "Machine Learning (Classical Algorithms)" }, { text: "AI Development & Integration (Building and deploying AI models)" }],
   },
   {
     id: 3,
-    title: "E-Commerce",
-    cover: "../images/e3.jpg",
-    desc: [{ text: "E-Commerce website design" }, { text: "Custom E-Commerce" }, { text: "Content management" }, { text: "Hosting" }],
+    title: "Digital Marketing",
+    cover: "../images/e7.avif",
+    link: "/services",
+    desc: [{ text: "Social media marketing" }, { text: "Marketing campaigns" }, { text: "Marketing management" }, { text: "SEO" }, {text: "Pay Per Click (PPC) Advertising"}, {text: "Content Marketing"}],
   },
   {
     id: 4,
-    title: "Branding & Creative Services",
-    cover: "../images/e4.jpg",
-    desc: [{ text: "Visual identity" }, { text: "Branding for social media" }, { text: "Custom illustrations" }],
+    title: "E-Commerce",
+    cover: "../images/e8.jpg",
+    link: "/services",
+    desc: [{ text: "Custom E-Commerce and Payment Integration" }, { text: "Content management" }, { text: "Hosting" }],
+  },
+ 
+  {
+    id: 5,
+    title: "Payment Gateway and Integration",
+    cover: "../images/e5.png",
+    link: "/services",
+    desc: [{ text: "Invoice Payment System" }, { text: "Subscription" }, { text: "Recurring Payment" }, { text: "QR Payment" },],
   },
 ]
 export const testimonial = [
   {
     id: 1,
-    name: "Alexander Black",
+    name: "Alani",
     cover: "../images/e1.jpg",
-    post: "Seven consulting - CEO",
+    post: "Alani Beauty Shop - CEO",
     desc: "Nunc fermentum - tempus erat ligula, sit amet lacinia justo cursus ac. Suspendisse quis nulla tincidunt! Lorem ipsum dolor amet at ornare ex, quis fringilla tortor! Nunc consectetur feugiat rutrum. Sed rhoncus sapien!",
-  },
-  {
-    id: 2,
-    name: "Diana Green",
-    cover: "../images/e2.jpg",
-    post: "Seven Arts - marketing manager",
-    desc: "Cras at ornare fermentum quam et tortor euismod, vel maximus metus tristique at ornare ex, quis fringilla tortor. Aenean semper neque quis consectetur lobortis. Quisque nec convallis ex. Aenean ut metus et nunc cursus aliquet.",
-  },
-  {
-    id: 3,
-    name: "Alexander Black",
-    cover: "../images/e3.jpg",
-    post: "Seven consulting - CEO",
-    desc: "Nunc fermentum - tempus erat ligula, sit amet lacinia justo cursus ac. Suspendisse quis nulla tincidunt! Lorem ipsum dolor amet at ornare ex, quis fringilla tortor! Nunc consectetur feugiat rutrum. Sed rhoncus sapien!",
-  },
-  {
-    id: 4,
-    name: "Diana Green",
-    cover: "../images/e4.jpg",
-    post: "Seven Arts - marketing manager",
-    desc: "Cras at ornare fermentum quam et tortor euismod, vel maximus metus tristique at ornare ex, quis fringilla tortor. Aenean semper neque quis consectetur lobortis. Quisque nec convallis ex. Aenean ut metus et nunc cursus aliquet.",
   },
 ]
 export const showcase = [
   {
     id: 1,
-    title: "Neon Lights",
+    title: "Alani Beauty Shop",
     cover: "../images/s1.jpg",
-    catgeory: "DIGITAL MARKETING",
-  },
-  {
-    id: 2,
-    title: "Futuristic Furniture",
-    catgeory: "WEBSITES",
-    cover: "../images/s2.jpg",
-  },
-  {
-    id: 3,
-    title: "Smart Living",
-    cover: "../images/s3.jpg",
-    catgeory: "WEBSITES",
-  },
-  {
-    id: 4,
-    title: "Light Painting",
-    cover: "../images/s4.jpg",
-    catgeory: "BRANDING	",
-  },
-  {
-    id: 5,
-    title: "Ideabox",
-    cover: "../images/s5.jpg",
-    catgeory: "BRANDING	",
-  },
-  {
-    id: 5,
-    title: "VR Experience",
-    cover: "../images/s6.jpg",
-    catgeory: "WEBSITES	",
+    catgeory: "E-Commerce",
+    link: "https://alani-next-ecommerce.onrender.com/",
   },
 ]
 export const brand = [
   {
     id: 1,
-    cover: "../images/l1.svg",
+    cover: "../images/paystack-logo-vector.svg",
   },
-  {
-    id: 2,
-    cover: "../images/l2.svg",
-  },
-  {
-    id: 3,
-    cover: "../images/l3.svg",
-  },
-  {
-    id: 4,
-    cover: "../images/l4.svg",
-  },
-  {
-    id: 5,
-    cover: "../images/l5.svg",
-  },
-  {
-    id: 6,
-    cover: "../images/l6.svg",
-  },
+  // {
+  //   id: 2,
+  //   cover: "../images/l2.svg",
+  // },
+  // {
+  //   id: 3,
+  //   cover: "../images/l3.svg",
+  // },
+  // {
+  //   id: 4,
+  //   cover: "../images/l4.svg",
+  // },
+  // {
+  //   id: 5,
+  //   cover: "../images/l5.svg",
+  // },
+  // {
+  //   id: 6,
+  //   cover: "../images/l6.svg",
+  // },
 ]
 export const blogdata = [
   {
@@ -174,50 +136,50 @@ export const blogdata = [
 export const teamdata = [
   {
     id: 1,
-    title: "Alexander Black",
-    cover: "../images/t1.jpg",
-    post: "FOUNDER, CEO",
+    title: "Michael Nana Ofosu",
+    cover: "../images/t9.jpg",
+    post: "SOFTWARE DEVELOPER",
   },
   {
     id: 2,
-    title: "Anna Kovalenko",
-    cover: "../images/t2.jpg",
-    post: "FINANCE DIRECTOR",
-  },
-  {
-    id: 3,
-    title: "Tiffany White",
-    cover: "../images/t3.jpg",
-    post: "CREATIVE DIRECTOR",
-  },
-  {
-    id: 4,
-    title: "Richard Greenwood",
-    cover: "../images/t4.jpg",
-    post: "PROGRAMMER",
-  },
-  {
-    id: 5,
-    title: "Jessica Brown",
-    cover: "../images/t5.jpg",
+    title: "Nathan Obeng",
+    cover: "../images/t9.jpg",
     post: "MARKETING DIRECTOR",
   },
   {
-    id: 6,
-    title: "Gregory Windstorm",
-    cover: "../images/t6.jpg",
-    post: "ACCOUNTING MANAGER",
+    id: 3,
+    title: "Jehoshaphat Sackey",
+    cover: "../images/t9.jpg",
+    post: "SALES DIRECTOR",
   },
-  {
-    id: 7,
-    title: "Anna Red",
-    cover: "../images/t7.jpg",
-    post: "PROJECT MANAGER",
-  },
-  {
-    id: 8,
-    title: "Join our team!",
-    cover: "../images/t8.jpg",
-    post: "",
-  },
+  // {
+  //   id: 4,
+  //   title: "Richard Greenwood",
+  //   cover: "../images/t4.jpg",
+  //   post: "PROGRAMMER",
+  // },
+  // {
+  //   id: 5,
+  //   title: "Jessica Brown",
+  //   cover: "../images/t5.jpg",
+  //   post: "MARKETING DIRECTOR",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Gregory Windstorm",
+  //   cover: "../images/t6.jpg",
+  //   post: "ACCOUNTING MANAGER",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Anna Red",
+  //   cover: "../images/t7.jpg",
+  //   post: "PROJECT MANAGER",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Join our team!",
+  //   cover: "../images/t8.jpg",
+  //   post: "",
+  // },
 ]

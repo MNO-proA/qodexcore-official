@@ -28,20 +28,6 @@ const Company = () => {
                 exceed your expectations. We're driven by innovation and fueled
                 by a commitment to delivering exceptional results.
               </p>
-              <div className="grid-3">
-                {/* <div className="box">
-                  <h1 className="indigo">1</h1>
-                  <h3>Year of experience</h3>
-                </div>
-                <div className="box">
-                  <h1 className="indigo">1</h1>
-                  <h3>Successful case</h3>
-                </div>
-                <div className="box">
-                  <h1 className="indigo">0</h1>
-                  <h3>Industry awards</h3>
-                </div> */}
-              </div>
             </div>
             <div className="right w-40 ml">
               <img
@@ -68,13 +54,10 @@ const Company = () => {
               <TitleSm title="Our mission" />
               <br />
               <p className="misson-p">
-                Fusce fringilla justo vel dui consectetur, fringilla maximus
-                ante malesuada. Suspendisse facilisis nisl augue, ut
-                sollicitudin lectus ipsum dolor sit amet, consectetur adipiscing
-                elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Veritatis esse vitae officia nostrum facere. Fugiat voluptates,
-                expedita dolore at perferendis quae libero fuga consequatur
-                veniam, eius non fugit nulla vitae?
+                Our mission in 2025 is to be the leading provider of innovative,
+                AI-powered software solutions in Ghana, seamlessly integrating
+                secure payment technologies like Paystack and Hubtel to fuel growth and
+                transform digital experiences for our clients in commence.
               </p>
             </div>
           </div>

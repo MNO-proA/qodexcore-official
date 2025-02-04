@@ -139,6 +139,9 @@
   .links {
     @include flex(none, flex-end, none);
   }
+  .card-details{
+    margin-top: -100px;
+  }
 }
 
 //brand
@@ -455,6 +458,7 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  
   .banner {
     .container {
       @include flex(center, none, column);
@@ -489,12 +493,37 @@ footer {
     margin: 0;
   }
   .agency {
-    .flex,
     .flex1 {
-      flex-direction: column;
+      flex-direction: column-reverse;
+      text-align: center; /* Centers content */
     }
-    .grid-3 {
-      @include grid(repeat(3, 1fr), 50px);
+  
+    .flex1 .right {
+      margin-bottom: 20px; /* Adds space between image and text */
+      
+    }
+    .content.flex {
+      flex-direction: column;
+      align-items: flex-start; /* Align text to left */
+      margin-top: -80px;
+    }
+  
+    .content .right {
+      width: 100%;
+      flex-direction: column;
+      text-align: left; /* Keep text left-aligned */
+     
+    }
+  
+    .content .right .misson-p {
+      border-left: 4px solid #6610f2; /* Adjust border for smaller screens */
+      padding-left: 15px; /* Adjust padding */
+    }
+  
+    .content .left {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 15px; /* Space between title and content */
     }
   }
   .contact {
@@ -515,3 +544,89 @@ footer {
     }
   }
 }
+
+
+
+
+
+// =============================================
+.my-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 90px;
+}
+
+/* Text section */
+.left {
+  flex: 1;
+  max-width: 60%;
+}
+
+/* Image section */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right img {
+  width: 100%;
+  max-width: 500px; /* Prevents excessive stretching */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .my-content {
+    flex-direction: column-reverse; 
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .left {
+    max-width: 100%; /* Full width text */
+  }
+
+  .right {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .right img {
+    max-width: 80%; /* Reduce image size */
+  }
+}
+// ==========================================================
+// .content {
+//   display: flex;
+//   align-items: center;
+//   gap: 2rem;
+// }
+
+// /* Mobile Responsive */
+// @media (max-width: 768px) {
+//   .content {
+//     flex-direction: column; /* Stack text and image */
+//     text-align: center; /* Center text for better readability */
+//   }
+
+//   .left {
+//     max-width: 100%; /* Allow full width */
+//     padding: 0 1rem; /* Add some spacing */
+//   }
+
+//   .right {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//   }
+
+//   .right img {
+//     max-width: 80%; /* Keep image responsive */
+//     height: auto;
+//   }
+// }

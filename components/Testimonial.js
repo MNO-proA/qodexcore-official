@@ -35,7 +35,7 @@ const Testimonial = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -60,23 +60,23 @@ const Testimonial = () => {
           </div>
           <div className='cards'>
             <Slider {...settings}>
-              {testimonial.map((user) => (
-                <div>
+              {testimonial.map((client) => (
+                <div key={client.id}>
                   <div className='card'>
                     <div className='image'>
                       <div className='img'>
-                        <img src={user.cover} alt='' />
+                        <img src={client.cover} alt='' />
                       </div>
                       <div className='img-text'>
-                        <h3>{user.name}</h3>
-                        <span>{user.post}</span>
+                        <h3>{client.name}</h3>
+                        <span>{client.post}</span>
                       </div>
                     </div>
                     <div className='details'>
-                      <p>{user.desc}</p>
-                      <Link href='/#'>
+                      <p>{client.desc}</p>
+                      {/* <Link href='/#'>
                         VIEW CASE <HiOutlineArrowRight className='link-icon' />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
