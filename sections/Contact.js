@@ -21,32 +21,25 @@ const Contact = () => {
               <div className='contact-deatils'>
                 <div className='box'>
                   <FiHeadphones size={30} className='icons' />
-                  <h3>1-001-234-5678</h3>
-                  <span>Call us: Mon - Fri 9:00 - 19:00</span>
+                  <h3>+233544446455</h3>
+              <h3>+233551023297</h3>
+              <h3>+233556056596</h3>
                 </div>
                 <div className='box'>
                   <IoLocationOutline size={30} className='icons' />
                   <h3>Accra</h3>
-                  {/* <span>990 Madison Ave, Midtown Manhattan, 2th Floor, NY 10022</span> */}
+                 
                 </div>
                 <div className='box'>
                   <FiHelpCircle size={30} className='icons' />
                   <h3>info@qodexcore.com</h3>
                   <span>Drop us a line anytime!</span>
                 </div>
-                {/* <div className='box'>
-                  <BiUserCircle size={30} className='icons' />
-                  <h3>hr@dream-theme.com</h3>
-                  <span>Career at Seven Creative</span>
-                </div> */}
               </div>
               <ul>
                 <li className='icon'>
                   <BsFacebook size={25} />
                 </li>
-                {/* <li className='icon'>
-                  <AiFillBehanceCircle size={25} />
-                </li> */}
                 <li className='icon'>
                   <AiFillInstagram size={25} />
                 </li>

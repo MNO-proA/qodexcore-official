@@ -22,26 +22,26 @@ const Products = () => {
               </Link>
 
               <div className="desc-p">
-                <p>
+                <p className="desc-p">
                   Still chasing payments with spreadsheets or printed invoices?
                   They don’t follow up, remind, or accept payments—Paystack
                   does. Qodalert automates invoice reminders via WhatsApp, SMS,
                   and voice calls, ensuring clients never “forget” to pay.
                 </p>
-                <p>
+                <p className="desc-p">
                   🚀 No Paystack? We’ll set it up for you! Stop using outdated
                   templates and start invoicing digitally.
                 </p>
-                <p>
+                <p className="desc-p">
                   📲 Already using Paystack? Connect & automate! Sync your
                   invoices and let Qodalert handle follow-ups.
                 </p>
-                <p>
+                <p className="desc-p">
                   💬 WhatsApp, SMS & Voice Call Reminders – Your customers get
                   notified on the day of invoice creation, 2 days before the due
                   date, 1 day before the due date, and on the due date.
                 </p>
-                <p>
+                <p className="desc-p">
                   💳 Instant Payments – Every reminder includes a Paystack
                   payment link for easy checkout.
                 </p>
@@ -59,31 +59,6 @@ const Products = () => {
             </div>
           </div>
 
-          {/* 
-          <div className="content flex">
-            <div className="left w-40 py">
-              <img
-                src="/images/s4.jpg"
-                alt="Img"
-                className="round"
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <div className="right w-60 ml">
-              <TitleSm title="Our mission" />
-              <br />
-              <p className="misson-p">
-                Fusce fringilla justo vel dui consectetur, fringilla maximus
-                ante malesuada. Suspendisse facilisis nisl augue, ut
-                sollicitudin lectus ipsum dolor sit amet, consectetur adipiscing
-                elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Veritatis esse vitae officia nostrum facere. Fugiat voluptates,
-                expedita dolore at perferendis quae libero fuga consequatur
-                veniam, eius non fugit nulla vitae?
-              </p>
-            </div>
-          </div> */}
         </div>
       </section>
       <Banner />

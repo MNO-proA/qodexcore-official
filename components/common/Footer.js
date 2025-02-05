@@ -17,7 +17,9 @@ const Footer = () => {
               </span>
               <br />
               <br />
-              <h3>+1 001 234 5678</h3>
+              <h3>+233544446455</h3>
+              <h3>+233551023297</h3>
+              <h3>+233556056596</h3>
               <br />
               {/* <button className='button-primary'>Request for quote</button> */}
             </div>
@@ -67,22 +69,18 @@ const Footer = () => {
               <h3>CONNECT</h3>
               <div className='connect'>
                 <li>
-                  <Link href='/'>
+                  <Link href='https://web.facebook.com/profile.php?id=61572668191188' target="_blank" >
                     <BsFacebook size={25} />
                   </Link>
                 </li>
-                {/* <li>
-                  <Link href='/'>
-                    <AiFillBehanceCircle size={25} />
-                  </Link>
-                </li> */}
+        
                 <li>
-                  <Link href='/'>
+                  <Link href='/' target="_blank" >
                     <AiFillInstagram size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href='/'>
+                  <Link href='https://www.linkedin.com/company/qodexcore/' target="_blank" >
                     <AiFillLinkedin size={25} />
                   </Link>
                 </li>

@@ -42,18 +42,16 @@
       font-size: $xll;
       line-height: 0;
       color: $green;
-    } 
+    }
     @media screen and (max-width: 800px) {
-    flex-direction: column;
-    align-items: center;
-    .titleSm {
-    margin: $xl-1 0;
+      flex-direction: column;
+      align-items: center;
+      .titleSm {
+        margin: $xl-1 0;
+      }
     }
-    }
-}
   }
- 
-
+}
 
 .hero-sec {
   position: relative;
@@ -139,7 +137,7 @@
   .links {
     @include flex(none, flex-end, none);
   }
-  .card-details{
+  .card-details {
     margin-top: -100px;
   }
 }
@@ -314,8 +312,6 @@ footer {
   }
 }
 footer {
-
-
   .connect {
     @include flex(center, space-between, none);
 
@@ -336,7 +332,6 @@ footer {
       }
     }
   }
-
 }
 
 .bg-top {
@@ -458,7 +453,6 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-  
   .banner {
     .container {
       @include flex(center, none, column);
@@ -497,35 +491,34 @@ footer {
       flex-direction: column-reverse;
       text-align: center; /* Centers content */
     }
-  
+
     .flex1 .right {
       margin-bottom: 20px; /* Adds space between image and text */
-      
     }
     .content.flex {
       flex-direction: column;
       align-items: flex-start; /* Align text to left */
       margin-top: -80px;
     }
-  
+
     .content .right {
       width: 100%;
       flex-direction: column;
       text-align: left; /* Keep text left-aligned */
-     
     }
-  
+
     .content .right .misson-p {
       border-left: 4px solid #6610f2; /* Adjust border for smaller screens */
       padding-left: 15px; /* Adjust padding */
     }
-  
+
     .content .left {
       width: 100%;
       text-align: left;
       margin-bottom: 15px; /* Space between title and content */
     }
   }
+
   .contact {
     .content {
       .left {
@@ -545,88 +538,67 @@ footer {
   }
 }
 
-
-
-
-
 // =============================================
 .my-content {
   display: flex;
   align-items: center;
   gap: 2rem;
   margin-top: 90px;
+
+  /* Text section */
+  .left {
+    flex: 1;
+    max-width: 60%;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right img {
+    width: 100%;
+    max-width: 500px; /* Prevents excessive stretching */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 }
 
-/* Text section */
-.left {
-  flex: 1;
-  max-width: 60%;
-}
 
-/* Image section */
-.right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.right img {
-  width: 100%;
-  max-width: 500px; /* Prevents excessive stretching */
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-}
 
 /* Mobile responsiveness */
+
 @media (max-width: 768px) {
   .my-content {
-    flex-direction: column-reverse; 
-    text-align: center;
-    gap: 1rem;
-  }
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 0 5%; /* Keep some padding */
+
 
   .left {
-    max-width: 100%; /* Full width text */
+    width: 100%;
+    max-width: 100%; /* Allow it to stretch */
+    text-align: left;
+  }
+
+  .left .desc-p {
+    max-width: 100%; /* Prevent premature wrapping */
+    line-height: 1.6; /* Improve readability */
   }
 
   .right {
     width: 100%;
-    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
   }
 
   .right img {
-    max-width: 80%; /* Reduce image size */
+    max-width: 90%;
   }
+  }
+
 }
+
 // ==========================================================
-// .content {
-//   display: flex;
-//   align-items: center;
-//   gap: 2rem;
-// }
-
-// /* Mobile Responsive */
-// @media (max-width: 768px) {
-//   .content {
-//     flex-direction: column; /* Stack text and image */
-//     text-align: center; /* Center text for better readability */
-//   }
-
-//   .left {
-//     max-width: 100%; /* Allow full width */
-//     padding: 0 1rem; /* Add some spacing */
-//   }
-
-//   .right {
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//   }
-
-//   .right img {
-//     max-width: 80%; /* Keep image responsive */
-//     height: auto;
-//   }
-// }
