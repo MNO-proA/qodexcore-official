@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const generateDots = (count) => {
   return Array.from({ length: count }, () => ({
@@ -44,15 +45,23 @@ const HeroSection = () => {
         <div className="flex flex-col justify-center h-full space-y-8">
           <div
             className={`transform transition-all duration-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
-            <img src="/favicon_qodexcore.svg" alt="Qodexcore Logo" className="w-24 h-24" />
+            <img
+              src="/favicon_qodexcore.svg"
+              alt="Qodexcore Logo"
+              className="w-24 h-24"
+            />
           </div>
 
           <h1
             className={`text-4xl md:text-6xl font-bold text-white max-w-3xl transition-all duration-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
             Innovation in Business
@@ -60,7 +69,9 @@ const HeroSection = () => {
 
           <div
             className={`flex space-x-4 text-lg text-gray-300 transition-all duration-1000 delay-200 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
             <span>Software</span>
@@ -72,13 +83,40 @@ const HeroSection = () => {
 
           <div
             className={`transition-all duration-1000 delay-300 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
-            <Button className="bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-8 py-6 text-lg rounded-full">
-              Get Started
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
+            <motion.button
+              className="group bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-8 py-6 text-lg rounded-full flex items-center"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(78, 232, 145, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 17,
+              }}
+            >
+              <span className="relative">Get Started</span>
+              <motion.div
+                className="ml-2"
+                initial={{ x: 0 }}
+                whileHover={{
+                  x: 5,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                }}
+              >
+                <ChevronRight className="h-5 w-5" />
+              </motion.div>
+            </motion.button>
           </div>
         </div>
       </div>
