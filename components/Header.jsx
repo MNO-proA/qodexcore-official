@@ -4,17 +4,21 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { useHeader } from "@/context/HeaderContext";
 
 const HeaderSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const { isHovered, setIsHovered } = useHeader();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const menuItems = [
-    { title: 'Home', href: '#' },
-    { title: 'Services', href: '#' },
-    { title: 'SaaS', href: '#' },
-    { title: 'Team', href: '#' },
-    { title: 'Contact Us', href: '#' },
+    { title: 'Home', href: '/' },
+    { title: 'About Us', href: '/about' },
+    // { title: 'Services', href: '/services' },
+    // { title: 'SaaS', href: '#' },
+    { title: 'Clients', href: '/clients-payment' },
+    // { title: 'Team', href: '#' },
+    // { title: 'Contact Us', href: '/contact' },
   ];
 
   const headerVariants = {
@@ -29,8 +33,8 @@ const HeaderSection = () => {
 
   return (
     <>
-      {/* Desktop Header */}
-      <div 
+
+      <div
         className="fixed w-full h-20 z-50 hidden md:block"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -38,10 +42,9 @@ const HeaderSection = () => {
         <AnimatePresence>
           {isHovered && (
             <motion.header
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={headerVariants}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="w-full backdrop-blur-md bg-gradient-to-r from-gray-900/40 to-purple-900/40"
             >
@@ -52,11 +55,8 @@ const HeaderSection = () => {
                       <motion.a
                         key={item.title}
                         href={item.href}
-                        className="text-gray-200 hover:text-[#4EE891] transition-all duration-300 text-sm font-medium"
-                        whileHover={{ 
-                          scale: 1.1,
-                          textShadow: "0 0 8px rgb(78, 232, 145)",
-                        }}
+                        className="text-gray-200 hover:text-[#4EE891] transition-all duration-300 text-xl font-semibold"
+                        whileHover={{ scale: 1.1, textShadow: "0 0 8px rgb(78, 232, 145)" }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {item.title}
@@ -69,6 +69,7 @@ const HeaderSection = () => {
           )}
         </AnimatePresence>
       </div>
+
 
       {/* Mobile Header */}
       <motion.header

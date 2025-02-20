@@ -1,6 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeaderSection from "@/components/Header";
+import { HeaderProvider } from "@/context/HeaderContext";
+import { Toaster } from "@/components/ui/sonner"
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +20,7 @@ export const metadata = {
   title: "Qodexcore",
   description: "Innovation In Business",
   icons: {
-    icon: [
-      { url: '/favicon_qodexcore.svg', type: 'image/svg+xml' },
-    ],
+    icon: [{ url: "/favicon_qodexcore.svg", type: "image/svg+xml" }],
   },
 };
 export default function RootLayout({ children }) {
@@ -27,8 +29,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeaderSection/>
-        {children}
+        <HeaderProvider>
+          <HeaderSection />
+          {children}
+          <Toaster />
+        </HeaderProvider>
       </body>
     </html>
   );
