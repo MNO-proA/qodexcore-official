@@ -35,7 +35,7 @@ const AboutSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+              <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
                 Architects of Digital Innovation
               </h1>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">

@@ -14,11 +14,8 @@ const HeaderSection = () => {
   const menuItems = [
     { title: 'Home', href: '/' },
     { title: 'About Us', href: '/about' },
-    // { title: 'Services', href: '/services' },
-    // { title: 'SaaS', href: '#' },
     { title: 'Clients', href: '/clients-payment' },
-    // { title: 'Team', href: '#' },
-    // { title: 'Contact Us', href: '/contact' },
+    {title: 'Packages', href: '/packages'}
   ];
 
   const headerVariants = {
@@ -55,7 +52,7 @@ const HeaderSection = () => {
                       <motion.a
                         key={item.title}
                         href={item.href}
-                        className="text-gray-200 hover:text-[#4EE891] transition-all duration-300 text-xl font-semibold"
+                        className="text-gray-200 hover:text-[#4EE891] transition-all duration-300 text-sm"
                         whileHover={{ scale: 1.1, textShadow: "0 0 8px rgb(78, 232, 145)" }}
                         whileTap={{ scale: 0.95 }}
                       >

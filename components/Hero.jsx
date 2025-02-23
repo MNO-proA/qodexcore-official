@@ -95,7 +95,7 @@ const HeroSection = () => {
             }`}
           >
             <motion.button
-              className="group bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-3 py-3 text-lg rounded-full flex items-center"
+              className="group bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-4 py-4 text-lg rounded-full flex items-center"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(78, 232, 145, 0.5)",
@@ -109,7 +109,7 @@ const HeroSection = () => {
               }}
               onClick={() => setIsHovered(true)}
             >
-              <span className="relative">Get Started</span>
+              <span className="text-sm relative">Get Started</span>
               <motion.div
                 className="ml-2"
                 initial={{ x: 0 }}
