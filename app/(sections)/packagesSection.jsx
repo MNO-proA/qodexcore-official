@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -17,45 +18,45 @@ const PricingPackagesSection = () => {
         "/videos/packages2.mp4"
     ];
 
-    // Handle scroll-based video switching
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!containerRef.current) return;
-
-            const container = containerRef.current;
-            const scrollPosition = window.scrollY;
-            const containerHeight = container.offsetHeight;
-            const windowHeight = window.innerHeight;
-            const scrollPercentage = (scrollPosition / (containerHeight - windowHeight)) * 100;
-
-            if (scrollPercentage > 75 && currentVideo !== 1) {
-                setCurrentVideo(1);
-            } else if (scrollPercentage <= 75 && currentVideo !== 0) {
-                setCurrentVideo(0);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [currentVideo]);
-
-    // Play videos when they become active
-    useEffect(() => {
-        videoRefs.current.forEach((ref, index) => {
-            if (ref) {
-                if (index === currentVideo) {
-                    const playPromise = ref.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.log("Video play failed:", error);
-                        });
-                    }
-                } else {
-                    ref.pause();
+        // Handle scroll-based video switching
+        useEffect(() => {
+            const handleScroll = () => {
+                if (!containerRef.current) return;
+    
+                const container = containerRef.current;
+                const scrollPosition = window.scrollY;
+                const containerHeight = container.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const scrollPercentage = (scrollPosition / (containerHeight - windowHeight)) * 100;
+    
+                if (scrollPercentage > 75 && currentVideo !== 1) {
+                    setCurrentVideo(1);
+                } else if (scrollPercentage <= 75 && currentVideo !== 0) {
+                    setCurrentVideo(0);
                 }
-            }
-        });
-    }, [currentVideo]);
+            };
+    
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+        }, [currentVideo]);
+    
+        // Play videos when they become active
+        useEffect(() => {
+            videoRefs.current.forEach((ref, index) => {
+                if (ref) {
+                    if (index === currentVideo) {
+                        const playPromise = ref.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log("Video play failed:", error);
+                            });
+                        }
+                    } else {
+                        ref.pause();
+                    }
+                }
+            });
+        }, [currentVideo]);
 
     const cardVariants = {
         hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -128,7 +129,7 @@ const PricingPackagesSection = () => {
                 </div>
                 
                 {/* Overlay - Always visible */}
-                <div className="absolute inset-0 z-10 bg-black bg-opacity-70" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-br from-teal-900/70 via-indigo-900/70 to-purple-900/70" />
             </div>
 
             {/* Content */}
@@ -139,45 +140,54 @@ const PricingPackagesSection = () => {
                     transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
                     className="text-center mb-20"
                 >
-                    <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+                    <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-pink-500 to-orange-500 bg-clip-text text-transparent">
                         Transform Your Digital Presence
                     </h1>
-                    <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-100 max-w-3xl mx-auto">
                         From simple websites to complex web applications, we craft digital solutions 
                         that help your business thrive in the modern world.
                     </p>
                 </motion.div>
 
-                {/* Rest of the component remains the same */}
-                {/* ... Packages and Maintenance sections ... */}
-                {/* (I've removed them for brevity but they stay exactly the same) */}
-                
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 items-center"
                 >
-                    {packages.map((pkg) => (
-                        <motion.div key={pkg.title} variants={cardVariants} whileHover="hover" className="h-full">
-                            <Card className="h-full bg-white bg-opacity-95 backdrop-blur-sm">
-                                <CardHeader className="text-center">
-                                <div className="mx-auto mb-4">{pkg.icon}</div>
+                    {packages.map((pkg, index) => (
+                        <motion.div 
+                            key={pkg.title} 
+                            variants={cardVariants} 
+                            whileHover="hover" 
+                            className={`h-full ${
+                                index === packages.length - 1 && packages.length % 3 !== 0 
+                                    ? "lg:col-start-2 lg:col-span-1 flex justify-center" 
+                                    : ""
+                            }`}
+                        >
+                            <Card className={`h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl ${
+                                index === packages.length - 1 && packages.length % 3 !== 0 
+                                    ? "w-full max-w-[28rem]" 
+                                    : "w-96"
+                            }`}>
+                                <CardHeader className="text-center bg-gradient-to-br from-teal-100 to-pink-100 bg-opacity-50 py-6">
+                                    <div className="mx-auto mb-2">{pkg.icon}</div>
                                     <motion.h3 
                                         variants={contentVariants}
-                                        className="text-2xl font-bold text-gray-200"
+                                        className="text-xl font-bold text-gray-800"
                                     >
                                         {pkg.title}
                                     </motion.h3>
                                     <motion.p 
                                         variants={contentVariants}
-                                        className="text-3xl font-bold text-purple-600"
+                                        className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-pink-600 bg-clip-text text-transparent"
                                     >
                                         {pkg.price}
                                     </motion.p>
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className="bg-white/60">
                                     <motion.ul variants={contentVariants} className="space-y-3">
                                         {pkg.features.map((feature) => (
                                             <motion.li
@@ -187,17 +197,12 @@ const PricingPackagesSection = () => {
                                                 transition={{ duration: 0.3 }}
                                                 className="flex items-center gap-2"
                                             >
-                                                <Check className="w-5 h-5 text-purple-500" />
-                                                <span className="text-gray-200">{feature}</span>
+                                                <Check className="w-5 h-5 text-teal-600" />
+                                                <span className="text-gray-700">{feature}</span>
                                             </motion.li>
                                         ))}
                                     </motion.ul>
                                 </CardContent>
-                                <CardFooter>
-                                    <Button className="w-full bg-purple-600 hover:bg-purple-700 hover:scale-105 transition-transform">
-                                        Get Started
-                                    </Button>
-                                </CardFooter>
                             </Card>
                         </motion.div>
                     ))}
@@ -210,8 +215,10 @@ const PricingPackagesSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl font-bold mb-6 text-white">Website Maintenance & Support</h2>
-                    <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                    <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-pink-500 to-teal-400 bg-clip-text text-transparent">
+                        Website Maintenance & Support
+                    </h2>
+                    <p className="text-xl text-gray-100 max-w-3xl mx-auto">
                         Keep your website running smoothly with our comprehensive maintenance packages.
                     </p>
                 </motion.div>
@@ -225,11 +232,11 @@ const PricingPackagesSection = () => {
                 >
                     {maintenancePackages.map((pkg) => (
                         <motion.div key={pkg.title} variants={cardVariants} whileHover="hover" className="h-full">
-                            <Card className="h-full bg-white bg-opacity-95 backdrop-blur-sm">
-                                <CardHeader className="text-center">
+                            <Card className="h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+                                <CardHeader className="text-center bg-gradient-to-br from-orange-100 to-teal-100 bg-opacity-50 py-6">
                                     <motion.h3 
                                         variants={contentVariants}
-                                        className="text-2xl font-bold text-gray-200"
+                                        className="text-2xl font-bold text-gray-800"
                                     >
                                         {pkg.title}
                                     </motion.h3>
@@ -237,11 +244,11 @@ const PricingPackagesSection = () => {
                                         variants={contentVariants}
                                         className="flex items-end justify-center gap-1"
                                     >
-                                        <span className="text-3xl font-bold text-purple-600">{pkg.price}</span>
-                                        <span className="text-gray-200">/{pkg.period}</span>
+                                        <span className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">{pkg.price}</span>
+                                        <span className="text-gray-600">/{pkg.period}</span>
                                     </motion.div>
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className="bg-white/60">
                                     <motion.ul variants={contentVariants} className="space-y-3">
                                         {pkg.features.map((feature) => (
                                             <motion.li
@@ -251,14 +258,14 @@ const PricingPackagesSection = () => {
                                                 transition={{ duration: 0.3 }}
                                                 className="flex items-center gap-2"
                                             >
-                                                <Check className="w-5 h-5 text-purple-500" />
-                                                <span className="text-gray-200">{feature}</span>
+                                                <Check className="w-5 h-5 text-orange-600" />
+                                                <span className="text-gray-700">{feature}</span>
                                             </motion.li>
                                         ))}
                                     </motion.ul>
                                 </CardContent>
-                                <CardFooter>
-                                    <Button className="w-full bg-purple-600 hover:bg-purple-700 hover:scale-105 transition-transform">
+                                <CardFooter className="bg-gradient-to-br from-orange-50 to-teal-50">
+                                    <Button className="w-full bg-gradient-to-r from-orange-600 to-teal-600 hover:from-orange-700 hover:to-teal-700 text-white hover:scale-105 transition-transform">
                                         Subscribe Now
                                     </Button>
                                 </CardFooter>

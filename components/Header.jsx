@@ -13,9 +13,12 @@ const HeaderSection = () => {
   
   const menuItems = [
     { title: 'Home', href: '/' },
-    { title: 'About Us', href: '/about' },
+    { title: 'About Us', href: '/about-us' },
+    { title: 'Services', href: '/our-services' },
     { title: 'Clients', href: '/clients-payment' },
-    {title: 'Packages', href: '/packages'}
+    {title: 'Packages', href: '/packages'},
+    {title: 'Contact Us', href: '/contact-us'},
+
   ];
 
   const headerVariants = {
@@ -43,7 +46,7 @@ const HeaderSection = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -100, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="w-full backdrop-blur-md bg-gradient-to-r from-gray-900/40 to-purple-900/40"
+              className="w-full backdrop-blur-md bg-gradient-to-r from-gray-900/40 to-[#4A4A4A]"
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-center h-20">
@@ -74,7 +77,7 @@ const HeaderSection = () => {
         animate="visible"
         variants={headerVariants}
         transition={{ duration: 0.5 }}
-        className="fixed w-full z-50 md:hidden bg-gradient-to-r from-gray-900/90 to-purple-900/90 backdrop-blur-lg"
+        className="fixed w-full z-50 md:hidden bg-gradient-to-r from-gray-900/40 to-[#4A4A4A] backdrop-blur-lg"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
@@ -102,7 +105,7 @@ const HeaderSection = () => {
             exit="closed"
             variants={mobileMenuVariants}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-y-0 right-0 w-64 bg-gradient-to-b from-gray-900 to-purple-900 z-40 md:hidden"
+            className="fixed inset-y-0 right-0 w-64 bg-gradient-to-b from-gray-900 to-[#4A4A4A] z-40 md:hidden"
           >
             <div className="pt-20 px-4">
               {menuItems.map((item, index) => (

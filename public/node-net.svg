@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+        <filter id="softBlur">
+            <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#F2F2F2" stopOpacity="1"/>
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="100%" height="100%" fill="url(#backgroundGradient)"/>
+
+    <g opacity="0.3" filter="url(#softBlur)">
+        {/* Large Interconnected Nodes */}
+        <g stroke="#6B403C" strokeOpacity="0.2" fill="none">
+            <circle cx="200" cy="250" r="120" strokeWidth="1"/>
+            <circle cx="1200" cy="650" r="90" strokeWidth="1"/>
+            <circle cx="600" cy="700" r="80" strokeWidth="1"/>
+        </g>
+
+        {/* Network of Smaller Connections */}
+        <g stroke="#58855C" strokeOpacity="0.1" strokeWidth="0.5">
+            {[...Array(50)].map((_, i) => {
+                const x = Math.random() * 1440;
+                const y = Math.random() * 900;
+                const r = Math.random() * 20;
+                return (
+                    <g key={i}>
+                        <circle cx={x} cy={y} r={r} fill="rgba(107, 64, 60, 0.05)"/>
+                        {[...Array(3)].map((_, j) => {
+                            const targetX = Math.random() * 1440;
+                            const targetY = Math.random() * 900;
+                            return (
+                                <line 
+                                    key={j} 
+                                    x1={x} 
+                                    y1={y} 
+                                    x2={targetX} 
+                                    y2={targetY} 
+                                    strokeDasharray="5,5"
+                                />
+                            );
+                        })}
+                    </g>
+                );
+            })}
+        </g>
+    </g>
+</svg>
