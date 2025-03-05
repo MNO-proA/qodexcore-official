@@ -19,7 +19,7 @@ const ContactUs = () => {
         <div 
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+            backgroundImage: `url('images/accra-1.jpg')`
           }}
         />
       </div>
