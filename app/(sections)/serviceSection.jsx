@@ -254,7 +254,7 @@ export default function ServicesSection() {
                 }}
                 className="bg-transparent container mx-auto relative z-10"
             >
-                <h2 className="lg:text-5xl text-3xl md:text-4xl text-center font-bold mb-6 bg-gradient-to-r from-[#6B403C] to-[#58855C] bg-clip-text text-transparent drop-shadow-lg">
+                <h2 className="mt-10 lg:text-5xl text-3xl md:text-4xl text-center font-bold mb-6 bg-gradient-to-r from-[#6B403C] to-[#58855C] bg-clip-text text-transparent drop-shadow-lg">
                     Unique Technologies & Modern Approach
                 </h2>
                 <div className="bg-transparent grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -142,7 +142,7 @@ const PricingPackagesSection = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="text-center mb-20"
         >
-          <h1 className="lg:text-5xl text-3xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+          <h1 className="mt-12 lg:text-5xl text-3xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-pink-500 to-orange-500 bg-clip-text text-transparent">
             Transform Your Digital Presence
           </h1>
           <p className="text-xl text-gray-100 max-w-3xl mx-auto">
