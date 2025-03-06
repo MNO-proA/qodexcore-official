@@ -36,7 +36,7 @@ const ContactUs = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-3xl font-bold mb-6"
+              className="mt-20 text-3xl font-bold mb-6"
             >
               Contact Us
             </motion.h2>
