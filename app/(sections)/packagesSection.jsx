@@ -9,8 +9,10 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Package, ShoppingCart, Code } from "lucide-react";
 import { packages, maintenancePackages } from "@/data";
+import AnimatedPricing from "@/components/AnimatedPricing";
+import Link from "next/link";
 
 const PricingPackagesSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -131,7 +133,7 @@ const PricingPackagesSection = () => {
         </div>
 
         {/* Overlay - Always visible */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-br from-teal-900/70 via-indigo-900/70 to-purple-900/70" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-br from-teal-900/90 via-indigo-900/90 to-purple-900/90" />
       </div>
 
       {/* Content */}
@@ -142,10 +144,11 @@ const PricingPackagesSection = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="text-center mb-20"
         >
-          <h1 className="mt-12 lg:text-5xl text-3xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-            Transform Your Digital Presence
+          <h1 className="mt-12 lg:text-5xl text-3xl font-bold mb-6 text-gray-50">
+            Transform Your{" "}
+            <span className="text-[#4EE891]">Digital Presence</span>
           </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+          <p className="text-sm lg:text-xl text-gray-100 max-w-3xl mx-auto">
             From simple websites to complex web applications, we craft digital
             solutions that help your business thrive in the modern world.
           </p>
@@ -170,7 +173,7 @@ const PricingPackagesSection = () => {
               }`}
             >
               <Card
-                className={`h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl ${
+                className={`h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl flex flex-col ${
                   index === packages.length - 1 && packages.length % 3 !== 0
                     ? "w-full max-w-[28rem]"
                     : "w-full max-w-xs md:max-w-sm"
@@ -180,18 +183,26 @@ const PricingPackagesSection = () => {
                   <div className="mx-auto mb-2">{pkg.icon}</div>
                   <motion.h3
                     variants={contentVariants}
-                    className="text-xl font-bold text-gray-800"
+                    className="text-xl font-bold text-gray-800 mb-3"
                   >
                     {pkg.title}
                   </motion.h3>
-                  <motion.p
-                    variants={contentVariants}
-                    className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-pink-600 bg-clip-text text-transparent"
-                  >
-                    {pkg.price}
-                  </motion.p>
+                  {/* New price display with animation */}
+                  {pkg.promo ? (
+                    <AnimatedPricing
+                      originalPrice={pkg.price}
+                      promoPrice={pkg.promo}
+                    />
+                  ) : (
+                    <motion.p
+                      variants={contentVariants}
+                      className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-pink-600 bg-clip-text text-transparent"
+                    >
+                      {pkg.price}
+                    </motion.p>
+                  )}
                 </CardHeader>
-                <CardContent className="bg-white/60">
+                <CardContent className="bg-white/60 flex-grow">
                   <motion.ul variants={contentVariants} className="space-y-3">
                     {pkg.features.map((feature) => (
                       <motion.li
@@ -201,12 +212,19 @@ const PricingPackagesSection = () => {
                         transition={{ duration: 0.3 }}
                         className="flex items-center gap-2"
                       >
-                        <Check className="w-5 h-5 text-teal-600" />
+                        <Check className="w-5 h-5 text-[#4EE891]" />
                         <span className="text-gray-700">{feature}</span>
                       </motion.li>
                     ))}
                   </motion.ul>
                 </CardContent>
+                <CardFooter className="bg-gradient-to-br from-teal-50 to-pink-50 mt-auto">
+                  <Link href="/contact-us" className="w-full">
+                    <Button className="rounded-lg w-full bg-gradient-to-r from-teal-600 to-pink-600 hover:from-teal-700 hover:to-pink-700 text-white transition-all duration-300">
+                      Get Started
+                    </Button>
+                  </Link>
+                </CardFooter>
               </Card>
             </motion.div>
           ))}
@@ -219,10 +237,10 @@ const PricingPackagesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-pink-500 to-teal-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-6 text-gray-50">
             Website Maintenance & Support
           </h2>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+          <p className="text-sm lg:text-xl text-gray-100 max-w-3xl mx-auto">
             Keep your website running smoothly with our comprehensive
             maintenance packages.
           </p>
@@ -242,7 +260,7 @@ const PricingPackagesSection = () => {
               whileHover="hover"
               className="h-full"
             >
-              <Card className="h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+              <Card className="h-full bg-white/90 backdrop-blur-sm border-0 shadow-2xl flex flex-col">
                 <CardHeader className="text-center bg-gradient-to-br from-orange-100 to-teal-100 bg-opacity-50 py-6">
                   <motion.h3
                     variants={contentVariants}
@@ -254,13 +272,13 @@ const PricingPackagesSection = () => {
                     variants={contentVariants}
                     className="flex items-end justify-center gap-1"
                   >
-                    <span className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-pink-600 bg-clip-text text-transparent">
                       {pkg.price}
                     </span>
                     <span className="text-gray-600">/{pkg.period}</span>
                   </motion.div>
                 </CardHeader>
-                <CardContent className="bg-white/60">
+                <CardContent className="bg-white/60 flex-grow">
                   <motion.ul variants={contentVariants} className="space-y-3">
                     {pkg.features.map((feature) => (
                       <motion.li
@@ -270,16 +288,18 @@ const PricingPackagesSection = () => {
                         transition={{ duration: 0.3 }}
                         className="flex items-center gap-2"
                       >
-                        <Check className="w-5 h-5 text-orange-600" />
+                        <Check className="w-5 h-5 text-teal-600" />
                         <span className="text-gray-700">{feature}</span>
                       </motion.li>
                     ))}
                   </motion.ul>
                 </CardContent>
-                <CardFooter className="bg-gradient-to-br from-orange-50 to-teal-50">
-                  <Button className="w-full bg-gradient-to-r from-orange-600 to-teal-600 hover:from-orange-700 hover:to-teal-700 text-white hover:scale-105 transition-transform">
-                    Subscribe Now
-                  </Button>
+                <CardFooter className="bg-gradient-to-br from-orange-50 to-teal-50 mt-auto">
+                  <Link href={"/contact-us"} className="w-full">
+                    <Button className="rounded-lg w-full bg-gradient-to-r from-teal-600 to-pink-600 hover:from-teal-700 hover:to-pink-700 text-white transition-all duration-300">
+                      Subscribe Now
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </motion.div>

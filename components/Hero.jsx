@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useHeader } from "@/context/HeaderContext"; 
+
 const generateDots = (count) => {
   return Array.from({ length: count }, () => ({
     left: `${Math.random() * 100}%`,
@@ -24,7 +24,6 @@ const HeroSection = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
 
   useEffect(() => {
     setIsVisible(true);
@@ -94,37 +93,55 @@ const HeroSection = () => {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <motion.button
-              className="group bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-4 py-4 text-lg rounded-full flex items-center"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(78, 232, 145, 0.5)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 17,
-                
-              }}
-              onClick={() => setIsHovered(true)}
+            {/* Enhanced arrow icon - hidden on mobile */}
+            <motion.div 
+              className="hidden md:flex justify-center mt-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
             >
-              <span className="text-sm relative">Get Started</span>
               <motion.div
-                className="ml-2"
-                initial={{ x: 0 }}
-                whileHover={{
-                  x: 5,
+                className="relative p-4 rounded-full cursor-pointer flex items-center justify-center"
+                whileHover={{ 
+                  scale: 1.2
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 10,
-                }}
+                onClick={() => setIsHovered(true)}
               >
-                <ChevronRight className="h-5 w-5" />
+                {/* Pulsing ring effect */}
+                <motion.div 
+                  className="absolute w-16 h-16 rounded-full bg-[#4EE891]/20"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.7, 0.3, 0.7]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Solid background circle */}
+                <div className="absolute w-14 h-14 rounded-full bg-[#4EE891]/30" />
+                
+                {/* Bouncing arrow */}
+                <motion.div
+                  animate={{
+                    y: [0, 10, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut"
+                  }}
+                  className="z-10"
+                >
+                  <ChevronDown className="h-12 w-12 text-white drop-shadow-lg" />
+                </motion.div>
               </motion.div>
-            </motion.button>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -153,63 +170,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-// "use client";
-
-// import { useEffect, useState } from "react";
-// import { ChevronRight } from "lucide-react";
-// import { motion } from "framer-motion";
-
-// const HeroSection = ({ setIsHovered }) => {
-//   const [isVisible, setIsVisible] = useState(false);
-
-//   useEffect(() => {
-//     setIsVisible(true);
-//   }, []);
-
-//   return (
-//     <div className="relative h-screen w-full overflow-hidden">
-//       {/* Background Video */}
-//       <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover">
-//         <source src="/videos/ai-vid.mp4" type="video/mp4" />
-//       </video>
-
-//       {/* Overlay */}
-//       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 to-purple-900/50" />
-
-//       {/* Content */}
-//       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="flex flex-col justify-center h-full space-y-8">
-//           <h1 className="text-4xl md:text-6xl font-bold text-white max-w-3xl">
-//             Innovation in Business
-//           </h1>
-
-//           <div className="flex space-x-4 text-lg text-gray-300">
-//             <span>Software</span>
-//             <span>•</span>
-//             <span>AI</span>
-//             <span>•</span>
-//             <span>Digital Marketing</span>
-//           </div>
-
-//           <motion.button
-//             className="group bg-[#4EE891] hover:bg-purple-500 text-gray-900 px-4 py-3 text-lg rounded-full flex items-center"
-//             whileHover={{ scale: 1.05 }}
-//             whileTap={{ scale: 0.95 }}
-//             onClick={() => setIsHovered(true)}
-//           >
-//             <span className="relative">Get Started</span>
-//             <motion.div
-//               className="ml-2"
-//               initial={{ x: 0 }}
-//               whileHover={{ x: 5 }}
-//             >
-//               <ChevronRight className="h-5 w-5" />
-//             </motion.div>
-//           </motion.button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default HeroSection;

@@ -1,24 +1,25 @@
-
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useHeader } from "@/context/HeaderContext";
+import { usePathname } from "next/navigation"; // Import this to check current path
 
 const HeaderSection = () => {
   const { isHovered, setIsHovered } = useHeader();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  const menuItems = [
-    { title: 'Home', href: '/' },
-    { title: 'About Us', href: '/about-us' },
-    { title: 'Services', href: '/our-services' },
-    { title: 'Clients', href: '/clients-payment' },
-    {title: 'Packages', href: '/packages'},
-    {title: 'Contact Us', href: '/contact-us'},
+  const pathname = usePathname(); // Get current path
+  const isHomePage = pathname === "/"; // Check if current page is home
 
+  const menuItems = [
+    { title: "Home", href: "/" },
+    { title: "About Us", href: "/about-us" },
+    { title: "Services", href: "/our-services" },
+    { title: "Clients", href: "/clients-payment" },
+    { title: "Packages", href: "/packages" },
+    { title: "Contact Us", href: "/contact-us" },
   ];
 
   const headerVariants = {
@@ -33,14 +34,14 @@ const HeaderSection = () => {
 
   return (
     <>
-
       <div
         className="fixed w-full h-20 z-50 hidden md:block"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <AnimatePresence>
-          {isHovered && (
+          {/* Modified condition: Show header when hovered OR not on home page */}
+          {(isHovered || !isHomePage) && (
             <motion.header
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -50,13 +51,26 @@ const HeaderSection = () => {
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-center h-20">
+                  <div className="flex-shrink-0">
+                    <Link href="/">
+                      <img
+                        src="/favicon_qodexcore.svg"
+                        alt="Logo"
+                        className="h-10"
+                      />
+                    </Link>
+                  </div>
+
                   <nav className="flex space-x-8">
                     {menuItems.map((item) => (
                       <motion.a
                         key={item.title}
                         href={item.href}
                         className="text-gray-200 hover:text-[#4EE891] transition-all duration-300 text-sm"
-                        whileHover={{ scale: 1.1, textShadow: "0 0 8px rgb(78, 232, 145)" }}
+                        whileHover={{
+                          scale: 1.1,
+                          textShadow: "0 0 8px rgb(78, 232, 145)",
+                        }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {item.title}
@@ -70,8 +84,7 @@ const HeaderSection = () => {
         </AnimatePresence>
       </div>
 
-
-      {/* Mobile Header */}
+      {/* Mobile Header - Always visible regardless of page */}
       <motion.header
         initial="hidden"
         animate="visible"
@@ -82,7 +95,11 @@ const HeaderSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
-              {/* Logo if needed */}
+              {
+                !isHomePage && <Link href="/">
+                <img src="/favicon_qodexcore.svg" alt="Logo" className="h-10" />
+              </Link>
+              }
             </div>
 
             <motion.button

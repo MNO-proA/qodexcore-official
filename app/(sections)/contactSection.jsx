@@ -1,14 +1,53 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Send, Phone, Mail, MapPin } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, Phone, Mail, MapPin, Loader2 } from "lucide-react";
+import { handleContactForm } from "@/actions/contactAction";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+    setError(null);
+
+    try {
+      const formResponse = await handleContactForm(new FormData(e.target));
+
+      if (formResponse?.success) {
+        setFormData({
+          fullName: "",
+          email: "",
+          message: "",
+        });
+        e.target.reset(); // Reset form fields for uncontrolled elements
+        setStatus(formResponse.message);
+      } else {
+        setError(
+          formResponse?.message || "Something went wrong. Please try again."
+        );
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6 },
   };
 
   return (
@@ -16,10 +55,10 @@ const ContactUs = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90" />
-        <div 
+        <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('images/accra-1.jpg')`
+            backgroundImage: `url('images/accra-1.jpg')`,
           }}
         />
       </div>
@@ -27,12 +66,10 @@ const ContactUs = () => {
       {/* Content Container */}
       <div className="max-w-6xl w-full mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-8">
+          
           {/* Left Column - Contact Info */}
-          <motion.div 
-            {...fadeIn}
-            className="space-y-8 text-white p-6"
-          >
-            <motion.h2 
+          <motion.div {...fadeIn} className="space-y-8 text-white p-6">
+            <motion.h2
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -40,8 +77,8 @@ const ContactUs = () => {
             >
               Contact Us
             </motion.h2>
-            
-            <motion.div 
+
+            <motion.div
               className="space-y-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -51,35 +88,40 @@ const ContactUs = () => {
                 <Phone className="w-5 h-5 text-[#ADEBB3]" />
                 <p>(233) 54-444-6455</p>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <Mail className="w-5 h-5 text-[#ADEBB3]" />
                 <p>admin@qodexcore.com</p>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <MapPin className="w-5 h-5 text-[#ADEBB3]" />
                 <p>Accra, Ghana</p>
                 <p> | </p>
-                <p >Kumasi, Ghana</p>
+                <p>Kumasi, Ghana</p>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Right Column - Contact Form */}
-          <motion.div 
+          <motion.div
             {...fadeIn}
             className="bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-xl"
           >
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 <input
-                  type="text"
+                  name="fullName"
                   placeholder="Full Name"
+                  required
+                  value={formData.fullName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullName: e.target.value })
+                  }
                   className="w-full p-3 bg-white/5 border border-gray-500 rounded-md focus:outline-none focus:border-teal-400 text-white"
                 />
               </motion.div>
@@ -91,7 +133,13 @@ const ContactUs = () => {
               >
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-full p-3 bg-white/5 border border-gray-500 rounded-md focus:outline-none focus:border-teal-400 text-white"
                 />
               </motion.div>
@@ -102,24 +150,57 @@ const ContactUs = () => {
                 transition={{ delay: 0.5 }}
               >
                 <textarea
+                  name="message"
                   placeholder="Type your message..."
                   rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   className="w-full p-3 bg-white/5 border border-gray-500 rounded-md focus:outline-none focus:border-teal-400 text-white resize-none"
                 />
               </motion.div>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#ADEBB3] text-[#4A4A4A] hover:text-white py-3 rounded-md flex items-center justify-center space-x-2 hover:bg-[#58855C] transition-colors"
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full bg-[#28A745] text-white py-3 rounded-lg flex items-center justify-center shadow-md transition-all duration-300"
               >
-                <span>Send Message</span>
-                <Send className="w-4 h-4 " />
-              </motion.button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center space-x-3 px-6 py-3 text-white font-semibold bg-[#28A745] rounded-lg shadow-md hover:bg-[#23963D] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
+                </button>
+              </motion.div>
+
+              {status && (
+                <p className="text-center text-white bg-[#23963D] py-2 mt-4 rounded-md shadow-md">
+                  {status}
+                </p>
+              )}
+              {error && (
+                <p className="text-center text-white bg-[#D9534F] py-2 mt-4 rounded-md shadow-md">
+                  {error}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
       </div>
+      
     </div>
   );
 };

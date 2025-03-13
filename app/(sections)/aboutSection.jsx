@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const AboutSection = () => {
   return (
@@ -28,8 +29,18 @@ const AboutSection = () => {
           transition={{ duration: 1, ease: "backOut" }}
           className="absolute inset-0 flex items-center justify-center text-center bg-black bg-opacity-50"
         >
-          <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg">
-            ABOUT QODEXCORE
+          <h1 className="text-2xl lg:text-6xl text-gray-50 font-extrabold tracking-tight drop-shadow-[0_2px_8px_rgba(0,200,255,0.8)] flex items-center">
+            ABOUT
+            <br />
+            <span className="inline-block h-24 w-24 -mr-4 ml-2">
+              <img
+                src="favicon_qodexcore.svg"
+                alt="Logo"
+                className="h-full w-full"
+              />
+            </span>
+            <span className="text-[#4EE891]">ODEX</span>
+            CORE
           </h1>
         </motion.div>
       </div>
@@ -56,16 +67,34 @@ const AboutSection = () => {
             transition={{ duration: 1 }}
             className="text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#ADEBB3] to-[#FF857A] bg-clip-text text-transparent drop-shadow-lg">
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#4EE891] to-[#FF857A] bg-clip-text text-transparent drop-shadow-lg">
               Architects of Digital Innovation
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
               We&apos;re not just another software agency; <br />
               we&apos;re architects of digital experiences. <br />
-              We&apos;re the team you turn to when you need more than just code – you
-              need a partner who understands your vision and can bring it to life with
-              cutting-edge technology.
+              We&apos;re the team you turn to when you need more than just code
+              – you need a partner who understands your vision and can bring it
+              to life with cutting-edge technology.
             </p>
+            <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      viewport={{ amount: 0.5 }}
+      transition={{ duration: 0.5 }}
+      className="mt-8"
+    >
+      <Link href="/contact-us">
+        <motion.button
+          className="px-8 py-3 rounded-full font-medium text-white bg-gradient-to-r from-[#4EE891] to-[#FF857A] hover:shadow-lg"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Contact Us
+        </motion.button>
+      </Link>
+    </motion.div>
           </motion.div>
 
           {/* Video Section - Slides in and slides out smoothly */}
@@ -89,7 +118,7 @@ const AboutSection = () => {
               playsInline
               className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-xl"
             >
-              <source src="/videos/laptop-hands.mp4" type="video/mp4" />
+              <source src="/videos/tech-story.mp4" type="video/mp4" />
             </motion.video>
           </motion.div>
         </div>
